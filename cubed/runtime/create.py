@@ -30,6 +30,10 @@ def create_executor(name: str, executor_options: Optional[dict] = None) -> Execu
         from cubed.runtime.executors.local import ProcessesExecutor
 
         return ProcessesExecutor(**executor_options)
+    elif name == "spark":
+        from cubed.runtime.executors.spark import SparkExecutor
+        
+        return SparkExecutor(**executor_options)
     elif name == "ray":
         from cubed.runtime.executors.ray import RayExecutor
 
@@ -44,3 +48,4 @@ def create_executor(name: str, executor_options: Optional[dict] = None) -> Execu
         return ThreadsExecutor(**executor_options)
     else:
         raise ValueError(f"Unrecognized executor name: {name}")
+        
