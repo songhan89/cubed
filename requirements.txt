@@ -13,3 +13,5 @@ psutil
 tenacity
 toolz
 zarr
+pyspark
+findspark
